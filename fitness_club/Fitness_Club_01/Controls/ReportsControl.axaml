@@ -1,0 +1,27 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="Fitness_Club_01.Controls.ReportsControl">
+
+    <StackPanel Spacing="20">
+        <TextBlock Text="Отчёты" FontSize="24" FontWeight="Bold" Foreground="#0F172A"/>
+
+        <Border Background="White" CornerRadius="14" Padding="20" BorderBrush="#E2E8F0" BorderThickness="1">
+            <StackPanel Spacing="12">
+                <TextBlock Text="Период" FontWeight="SemiBold" Foreground="#0F172A"/>
+                <Grid ColumnDefinitions="Auto,*,Auto,*">
+                    <TextBlock Grid.Column="0" Text="С" VerticalAlignment="Center" Margin="0,0,8,0"/>
+                    <DatePicker Grid.Column="1" Name="FromDatePicker"/>
+                    <TextBlock Grid.Column="2" Text="По" VerticalAlignment="Center" Margin="16,0,8,0"/>
+                    <DatePicker Grid.Column="3" Name="ToDatePicker"/>
+                </Grid>
+                <StackPanel Orientation="Horizontal" Spacing="10" Margin="0,8,0,0">
+                    <Button Name="VisitsReportBtn" Classes="primary" Content="Визиты" Width="120"/>
+                    <Button Name="SalesReportBtn" Classes="primary" Content="Продажи" Width="120"/>
+                    <Button Name="ExpiringReportBtn" Classes="secondary" Content="Истекающие" Width="130"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+
+        <TextBlock Name="StatusText" Foreground="#64748B" FontSize="12"/>
+    </StackPanel>
+</UserControl>

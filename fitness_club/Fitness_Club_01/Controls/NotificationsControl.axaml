@@ -1,0 +1,29 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="Fitness_Club_01.Controls.NotificationsControl">
+
+    <Grid RowDefinitions="Auto,Auto,*,Auto">
+        <TextBlock Grid.Row="0" Text="Уведомления" FontSize="24" FontWeight="Bold" Foreground="#0F172A" Margin="0,0,0,16"/>
+
+        <Border Grid.Row="1" Background="White" CornerRadius="14" Padding="16" Margin="0,0,0,12"
+                BorderBrush="#E2E8F0" BorderThickness="1">
+            <Grid ColumnDefinitions="*,Auto">
+                <TextBlock Grid.Column="0" Name="SummaryText" VerticalAlignment="Center" Foreground="#64748B"/>
+                <Button Grid.Column="1" Name="RefreshButton" Classes="secondary" Content="Обновить" Width="110"/>
+            </Grid>
+        </Border>
+
+        <DataGrid Grid.Row="2" Name="NotificationsGrid" Classes="AppDataGrid"
+                  AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="№" Binding="{Binding Number}" Width="60"/>
+                <DataGridTextColumn Header="Дата" Binding="{Binding CreatedAt}" Width="130"/>
+                <DataGridTextColumn Header="Тема" Binding="{Binding Title}" Width="200"/>
+                <DataGridTextColumn Header="Сообщение" Binding="{Binding Message}" Width="*"/>
+                <DataGridTextColumn Header="Статус" Binding="{Binding Status}" Width="100"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <TextBlock Grid.Row="3" Name="StatusText" Margin="0,10,0,0" Foreground="#64748B" FontSize="12"/>
+    </Grid>
+</UserControl>

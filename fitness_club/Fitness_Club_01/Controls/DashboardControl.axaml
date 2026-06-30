@@ -1,0 +1,57 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="Fitness_Club_01.Controls.DashboardControl">
+
+    <ScrollViewer>
+        <StackPanel Spacing="20">
+            <TextBlock Text="Обзор клуба" FontSize="26" FontWeight="Bold" Foreground="#0F172A"/>
+
+            <UniformGrid Columns="3" Rows="2">
+                <Border Background="White" CornerRadius="14" Padding="20" Margin="0,0,12,12" BorderBrush="#E2E8F0" BorderThickness="1">
+                    <StackPanel Spacing="4">
+                        <TextBlock Text="Клиенты" Foreground="#64748B" FontSize="13"/>
+                        <TextBlock Name="ClientsCount" Text="—" FontSize="28" FontWeight="Bold" Foreground="#0F172A"/>
+                    </StackPanel>
+                </Border>
+                <Border Background="White" CornerRadius="14" Padding="20" Margin="0,0,12,12" BorderBrush="#E2E8F0" BorderThickness="1">
+                    <StackPanel Spacing="4">
+                        <TextBlock Text="Активные абонементы" Foreground="#64748B" FontSize="13"/>
+                        <TextBlock Name="ActiveMembershipsCount" Text="—" FontSize="28" FontWeight="Bold" Foreground="#10B981"/>
+                    </StackPanel>
+                </Border>
+                <Border Background="White" CornerRadius="14" Padding="20" Margin="0,0,0,12" BorderBrush="#E2E8F0" BorderThickness="1">
+                    <StackPanel Spacing="4">
+                        <TextBlock Text="Истёкшие абонементы" Foreground="#64748B" FontSize="13"/>
+                        <TextBlock Name="ExpiredMembershipsCount" Text="—" FontSize="28" FontWeight="Bold" Foreground="#EF4444"/>
+                    </StackPanel>
+                </Border>
+                <Border Background="White" CornerRadius="14" Padding="20" Margin="0,0,12,0" BorderBrush="#E2E8F0" BorderThickness="1">
+                    <StackPanel Spacing="4">
+                        <TextBlock Text="Визиты сегодня" Foreground="#64748B" FontSize="13"/>
+                        <TextBlock Name="VisitsTodayCount" Text="—" FontSize="28" FontWeight="Bold" Foreground="#0F172A"/>
+                    </StackPanel>
+                </Border>
+                <Border Background="White" CornerRadius="14" Padding="20" Margin="0,0,12,0" BorderBrush="#E2E8F0" BorderThickness="1">
+                    <StackPanel Spacing="4">
+                        <TextBlock Text="Записи на занятия" Foreground="#64748B" FontSize="13"/>
+                        <TextBlock Name="BookingsCount" Text="—" FontSize="28" FontWeight="Bold" Foreground="#0F172A"/>
+                    </StackPanel>
+                </Border>
+                <Border Background="White" CornerRadius="14" Padding="20" BorderBrush="#E2E8F0" BorderThickness="1">
+                    <StackPanel Spacing="4">
+                        <TextBlock Text="Выручка за 30 дней" Foreground="#64748B" FontSize="13"/>
+                        <TextBlock Name="RevenueMonthCount" Text="—" FontSize="24" FontWeight="Bold" Foreground="#10B981"/>
+                    </StackPanel>
+                </Border>
+            </UniformGrid>
+
+            <Border Background="White" CornerRadius="14" Padding="20" BorderBrush="#E2E8F0" BorderThickness="1">
+                <StackPanel Spacing="8">
+                    <TextBlock Text="Подсказка" FontSize="16" FontWeight="SemiBold" Foreground="#0F172A"/>
+                    <TextBlock Text="Истёкшие абонементы обновляются автоматически при открытии разделов. Управление расписанием, персоналом и отчёты — в меню слева."
+                               Foreground="#64748B" TextWrapping="Wrap"/>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

@@ -1,0 +1,46 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="Fitness_Club_01.Views.AdminWindow"
+        Title="Фитнес Клуб — Администратор"
+        Width="1280" Height="720"
+        WindowStartupLocation="CenterScreen"
+        Background="#F8FAFC">
+
+    <Grid ColumnDefinitions="250,*">
+        <Border Grid.Column="0" Background="#0F172A" Padding="20,24">
+            <DockPanel>
+                <StackPanel DockPanel.Dock="Top" Spacing="6" Margin="0,0,0,16" HorizontalAlignment="Left">
+                    <Border Width="44" Height="44" CornerRadius="12" Background="#10B981" HorizontalAlignment="Left">
+                        <TextBlock Text="FC" FontWeight="Bold" Foreground="White"
+                                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                    <TextBlock Text="Fitness Club" FontSize="16" FontWeight="Bold" Foreground="White" HorizontalAlignment="Left"/>
+                    <TextBlock Name="UserCaptionText" FontSize="12" Foreground="#94A3B8" HorizontalAlignment="Left"
+                               TextWrapping="Wrap"/>
+                </StackPanel>
+
+                <Button DockPanel.Dock="Bottom" Name="ExitButton" Classes="danger"
+                        Content="Выйти" HorizontalAlignment="Stretch" Margin="0,16,0,0"/>
+
+                <ScrollViewer>
+                    <StackPanel Spacing="6">
+                        <Button Name="DashboardBtn" Classes="nav" Content="  Главная"/>
+                        <Button Name="ClientsBtn" Classes="nav" Content="  Клиенты"/>
+                        <Button Name="MembershipsBtn" Classes="nav" Content="  Абонементы"/>
+                        <Button Name="VisitsBtn" Classes="nav" Content="  Визиты"/>
+                        <Button Name="BookingsBtn" Classes="nav" Content="  Записи"/>
+                        <Button Name="ScheduleBtn" Classes="nav" Content="  Расписание"/>
+                        <Button Name="StaffBtn" Classes="nav" Content="  Сотрудники"/>
+                        <Button Name="TrainersBtn" Classes="nav" Content="  Тренеры"/>
+                        <Button Name="ReferencesBtn" Classes="nav" Content="  Справочники"/>
+                        <Button Name="ReportsBtn" Classes="nav" Content="  Отчёты"/>
+                    </StackPanel>
+                </ScrollViewer>
+            </DockPanel>
+        </Border>
+
+        <Border Grid.Column="1" Padding="24">
+            <ContentControl Name="ContentArea"/>
+        </Border>
+    </Grid>
+</Window>

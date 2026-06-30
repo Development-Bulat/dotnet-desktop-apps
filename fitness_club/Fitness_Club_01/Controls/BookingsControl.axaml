@@ -1,0 +1,33 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="Fitness_Club_01.Controls.BookingsControl">
+
+    <Grid RowDefinitions="Auto,Auto,*,Auto">
+        <TextBlock Grid.Row="0" Name="HeaderText" Text="Записи на занятия" FontSize="24" FontWeight="Bold" Foreground="#0F172A" Margin="0,0,0,16"/>
+
+        <Border Grid.Row="1" Background="White" CornerRadius="14" Padding="16" Margin="0,0,0,12"
+                BorderBrush="#E2E8F0" BorderThickness="1">
+            <Grid ColumnDefinitions="*,Auto,Auto,Auto">
+                <TextBox Grid.Column="0" Name="SearchBox" Classes="modern" Watermark="Поиск..."/>
+                <Button Grid.Column="1" Name="AddButton" Classes="primary" Content="Записать" Margin="12,0,0,0" MinWidth="120"/>
+                <Button Grid.Column="2" Name="CancelBookingButton" Classes="danger" Content="Отменить" Margin="8,0,0,0" Width="110"/>
+                <Button Grid.Column="3" Name="RefreshButton" Classes="secondary" Content="Обновить" Margin="8,0,0,0" Width="110"/>
+            </Grid>
+        </Border>
+
+        <DataGrid Grid.Row="2" Name="BookingsGrid" Classes="AppDataGrid"
+                  AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="№" Binding="{Binding Number}" Width="60"/>
+                <DataGridTextColumn Header="Клиент" Binding="{Binding ClientName}" Width="180"/>
+                <DataGridTextColumn Header="Занятие" Binding="{Binding ClassName}" Width="160"/>
+                <DataGridTextColumn Header="Дата" Binding="{Binding ClassDate}" Width="100"/>
+                <DataGridTextColumn Header="Время" Binding="{Binding ClassTime}" Width="70"/>
+                <DataGridTextColumn Header="ФИО тренера" Binding="{Binding TrainerName}" Width="200"/>
+                <DataGridTextColumn Header="Зал" Binding="{Binding HallName}" Width="*" MinWidth="120"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <TextBlock Grid.Row="3" Name="StatusText" Margin="0,10,0,0" Foreground="#64748B" FontSize="12"/>
+    </Grid>
+</UserControl>

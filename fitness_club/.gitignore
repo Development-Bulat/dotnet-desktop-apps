@@ -1,0 +1,6 @@
+bin/
+obj/
+.idea/
+*.user
+.DS_Store
+**/connection.local.txt

@@ -1,0 +1,38 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="Fitness_Club_01.Views.MembershipStatusWindow"
+        Title="Управление абонементом"
+        Width="640" Height="520"
+        WindowStartupLocation="CenterOwner"
+        Background="#F8FAFC">
+
+    <Border Background="White" Margin="20" CornerRadius="14" Padding="24" BorderBrush="#E2E8F0" BorderThickness="1">
+        <Grid RowDefinitions="Auto,Auto,Auto,*,Auto,Auto">
+            <TextBlock Grid.Row="0" Name="TitleText" FontSize="20" FontWeight="Bold" Foreground="#0F172A" Margin="0,0,0,12"/>
+            <TextBlock Grid.Row="1" Name="InfoText" Foreground="#64748B" TextWrapping="Wrap" Margin="0,0,0,12"/>
+
+            <StackPanel Grid.Row="2" Orientation="Horizontal" Spacing="8" Margin="0,0,0,12">
+                <Button Name="FreezeButton" Classes="secondary" Content="Заморозить" Width="120"/>
+                <Button Name="UnfreezeButton" Classes="secondary" Content="Разморозить" Width="120"/>
+                <Button Name="CancelButton" Classes="danger" Content="Отменить" Width="110"/>
+            </StackPanel>
+
+            <DataGrid Grid.Row="3" Name="HistoryGrid" Classes="AppDataGrid"
+                      AutoGenerateColumns="False" IsReadOnly="True" MaxHeight="260">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="№" Binding="{Binding Number}" Width="50"/>
+                    <DataGridTextColumn Header="Дата" Binding="{Binding ChangedAt}" Width="130"/>
+                    <DataGridTextColumn Header="Статус" Binding="{Binding StatusName}" Width="120"/>
+                    <DataGridTextColumn Header="Кто" Binding="{Binding ChangedBy}" Width="100"/>
+                    <DataGridTextColumn Header="Комментарий" Binding="{Binding Comment}" Width="*" MinWidth="120"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <Grid Grid.Row="4" ColumnDefinitions="*,Auto" Margin="0,12,0,0">
+                <Button Grid.Column="1" Name="CloseButton" Classes="secondary dialog" Content="Закрыть"/>
+            </Grid>
+
+            <TextBlock Grid.Row="5" Name="ErrorText" Foreground="#EF4444" FontSize="12" TextWrapping="Wrap" Margin="0,8,0,0"/>
+        </Grid>
+    </Border>
+</Window>

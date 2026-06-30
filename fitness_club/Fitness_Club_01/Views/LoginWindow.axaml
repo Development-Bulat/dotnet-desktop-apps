@@ -1,0 +1,47 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="Fitness_Club_01.Views.LoginWindow"
+        Title="Фитнес Клуб — Вход"
+        Width="920" Height="560"
+        WindowStartupLocation="CenterScreen"
+        CanResize="False"
+        Background="#F8FAFC">
+
+    <Grid ColumnDefinitions="*,420">
+        <Border Grid.Column="0" Background="#0F172A">
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="18" Margin="40">
+                <Border Width="64" Height="64" CornerRadius="18" Background="#10B981">
+                    <TextBlock Text="FC" FontSize="26" FontWeight="Bold" Foreground="White"
+                               HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Border>
+                <TextBlock Text="FITNESS CLUB"
+                           FontSize="28" FontWeight="Bold" Foreground="White"
+                           HorizontalAlignment="Center"/>
+                <TextBlock Text="Система управления фитнес-клубом"
+                           FontSize="15" Foreground="#94A3B8" TextAlignment="Center"/>
+                <TextBlock Text="Абонементы • Визиты • Расписание"
+                           FontSize="13" Foreground="#64748B" TextAlignment="Center"/>
+            </StackPanel>
+        </Border>
+
+        <Border Grid.Column="1" Background="White" Padding="40">
+            <StackPanel VerticalAlignment="Center" Spacing="16">
+                <TextBlock Text="Вход в систему" FontSize="24" FontWeight="Bold" Foreground="#0F172A"/>
+                <TextBlock Text="Введите логин и пароль" FontSize="14" Foreground="#64748B"/>
+
+                <TextBox Name="LoginBox" Classes="modern" Watermark="Логин" Height="44" MaxLength="50"/>
+                <TextBox Name="PasswordBox" Classes="modern" Watermark="Пароль" PasswordChar="•" Height="44" MaxLength="16"/>
+
+                <Button Name="LoginButton" Classes="primary" Content="Войти"
+                        Width="160" Height="44" HorizontalAlignment="Center"/>
+
+                <Button Name="RegisterLink" Classes="link"
+                        Content="Нет аккаунта? Зарегистрироваться"
+                        HorizontalAlignment="Center"/>
+
+                <TextBlock Name="ErrorText" FontSize="12" Foreground="#EF4444"
+                           TextWrapping="Wrap" HorizontalAlignment="Center"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

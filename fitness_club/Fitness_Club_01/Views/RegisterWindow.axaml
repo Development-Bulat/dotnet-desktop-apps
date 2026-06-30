@@ -1,0 +1,39 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="Fitness_Club_01.Views.RegisterWindow"
+        Title="Фитнес Клуб — Регистрация"
+        Width="520" Height="640"
+        WindowStartupLocation="CenterScreen"
+        CanResize="False"
+        Background="#F8FAFC">
+
+    <Border Background="White" Margin="24" CornerRadius="16" Padding="28" BoxShadow="0 8 24 0 #15000000">
+        <ScrollViewer>
+            <StackPanel Spacing="12">
+                <TextBlock Text="Регистрация"
+                           FontSize="22" FontWeight="Bold" Foreground="#0F172A"
+                           HorizontalAlignment="Center" TextAlignment="Center"/>
+
+                <TextBox Name="LastNameBox" Classes="modern" Watermark="Фамилия *" MaxLength="100"/>
+                <TextBox Name="FirstNameBox" Classes="modern" Watermark="Имя *" MaxLength="100"/>
+                <TextBox Name="PatronymicBox" Classes="modern" Watermark="Отчество" MaxLength="100"/>
+                <TextBlock Text="Телефон *" FontSize="13" Foreground="#64748B"/>
+                <TextBox Name="PhoneBox" Classes="modern" MaxLength="18"/>
+                <DatePicker Name="BirthDatePicker"/>
+                <TextBlock Text="Регистрация доступна с 18 лет" FontSize="11" Foreground="#64748B"/>
+
+                <TextBox Name="LoginBox" Classes="modern" Watermark="Логин *" MaxLength="50"/>
+                <TextBox Name="PasswordBox" Classes="modern" Watermark="Пароль *" PasswordChar="•" MaxLength="16"/>
+                <TextBox Name="ConfirmPasswordBox" Classes="modern" Watermark="Повторите пароль *" PasswordChar="•" MaxLength="16"/>
+
+                <Button Name="RegisterButton" Classes="primary" Content="Зарегистрироваться"
+                        Width="220" Height="44" HorizontalAlignment="Center" Margin="0,8,0,0"/>
+                <Button Name="LoginLink" Classes="link"
+                        Content="Есть аккаунт? Войти"
+                        HorizontalAlignment="Center"/>
+                <TextBlock Name="ErrorText" FontSize="12" Foreground="#EF4444"
+                           TextWrapping="Wrap" HorizontalAlignment="Center" TextAlignment="Center"/>
+            </StackPanel>
+        </ScrollViewer>
+    </Border>
+</Window>

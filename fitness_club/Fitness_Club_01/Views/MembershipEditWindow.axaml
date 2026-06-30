@@ -1,0 +1,46 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="Fitness_Club_01.Views.MembershipEditWindow"
+        Title="Оформление абонемента"
+        Width="480" Height="400"
+        WindowStartupLocation="CenterOwner"
+        CanResize="False"
+        Background="#F8FAFC">
+
+    <Border Background="White" Margin="16" CornerRadius="14" Padding="24" BorderBrush="#E2E8F0" BorderThickness="1">
+        <Grid RowDefinitions="*,Auto,Auto">
+            <ScrollViewer Grid.Row="0" VerticalScrollBarVisibility="Auto">
+                <StackPanel Spacing="12">
+                    <TextBlock Text="Новый абонемент" Name="HeaderTitle" FontSize="20" FontWeight="Bold" Foreground="#0F172A"/>
+                    <ComboBox Name="ClientCombo" PlaceholderText="Клиент *"/>
+                    <ComboBox Name="TypeCombo" PlaceholderText="Тариф *"/>
+                    <DatePicker Name="StartDatePicker"/>
+                    <TextBlock Name="PeriodText" Foreground="#64748B" FontSize="13" TextWrapping="Wrap"/>
+
+                    <StackPanel Name="PaymentPanel" Spacing="12" IsVisible="False">
+                        <Border Background="#F8FAFC" CornerRadius="10" Padding="14" BorderBrush="#E2E8F0" BorderThickness="1">
+                            <StackPanel Spacing="4">
+                                <TextBlock Text="Оплата банковской картой" FontWeight="SemiBold" Foreground="#0F172A"/>
+                                <TextBlock Name="AmountText" Foreground="#64748B" FontSize="13"/>
+                                <TextBlock Text="Имитация оплаты — реальные списания не выполняются" FontSize="11" Foreground="#94A3B8"/>
+                            </StackPanel>
+                        </Border>
+
+                        <TextBox Name="CardNumberBox" Classes="modern" Watermark="Номер карты *"/>
+                        <Grid ColumnDefinitions="*,*">
+                            <TextBox Grid.Column="0" Name="ExpiryBox" Classes="modern" Watermark="ММ/ГГ, напр. 11/30 *" Margin="0,0,6,0"/>
+                            <TextBox Grid.Column="1" Name="CvvBox" Classes="modern" Watermark="CVV *" Margin="6,0,0,0"/>
+                        </Grid>
+                        <TextBox Name="HolderBox" Classes="modern" Watermark="Имя держателя карты *" MaxLength="50"/>
+                    </StackPanel>
+                </StackPanel>
+            </ScrollViewer>
+
+            <TextBlock Grid.Row="1" Name="ErrorText" Foreground="#EF4444" FontSize="12" TextWrapping="Wrap" Margin="0,8,0,0"/>
+            <Grid Grid.Row="2" ColumnDefinitions="*,Auto,Auto" Margin="0,12,0,0">
+                <Button Grid.Column="1" Name="CancelButton" Classes="secondary dialog" Content="Отмена"/>
+                <Button Grid.Column="2" Name="SaveButton" Classes="primary dialog" Content="Оформить" Margin="10,0,0,0"/>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>

@@ -1,0 +1,49 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="Fitness_Club_01.Views.ClientWindow"
+        Title="Фитнес Клуб — Личный кабинет"
+        Width="1100" Height="680"
+        WindowStartupLocation="CenterScreen"
+        Background="#F8FAFC">
+
+    <Grid ColumnDefinitions="250,*">
+        <Border Grid.Column="0" Background="#0F172A" Padding="20,24">
+            <DockPanel>
+                <StackPanel DockPanel.Dock="Top" Spacing="6" Margin="0,0,0,24" HorizontalAlignment="Left">
+                    <Border Width="44" Height="44" CornerRadius="12" Background="#10B981" HorizontalAlignment="Left">
+                        <TextBlock Text="FC" FontWeight="Bold" Foreground="White"
+                                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                    <TextBlock Text="Fitness Club" FontSize="16" FontWeight="Bold" Foreground="White" HorizontalAlignment="Left"/>
+                    <TextBlock Name="UserCaptionText" FontSize="12" Foreground="#94A3B8" HorizontalAlignment="Left"
+                               TextWrapping="Wrap"/>
+                </StackPanel>
+
+                <Button DockPanel.Dock="Bottom" Name="ExitButton" Classes="danger"
+                        Content="Выйти" HorizontalAlignment="Stretch" Margin="0,16,0,0"/>
+
+                <StackPanel Spacing="6">
+                    <Button Name="MembershipBtn" Classes="nav" Content="  Мой абонемент"/>
+                    <Button Name="BookingsBtn" Classes="nav" Content="  Мои записи"/>
+                    <Button Name="BookClassBtn" Classes="nav" Content="  Записаться"/>
+                    <Grid>
+                        <Button Name="NotificationsBtn" Classes="nav" Content="  Уведомления"/>
+                        <Border Name="NotificationBadge" Background="#EF4444" CornerRadius="9"
+                                HorizontalAlignment="Right" VerticalAlignment="Center"
+                                Margin="0,0,10,0" MinWidth="22" Height="22" Padding="6,2"
+                                IsVisible="False" IsHitTestVisible="False">
+                            <TextBlock Name="NotificationBadgeText" Foreground="White"
+                                       FontSize="11" FontWeight="Bold" HorizontalAlignment="Center"/>
+                        </Border>
+                    </Grid>
+                    <Button Name="ProfileBtn" Classes="nav" Content="  Мой профиль"/>
+                    <Button Name="PasswordBtn" Classes="nav" Content="  Сменить пароль"/>
+                </StackPanel>
+            </DockPanel>
+        </Border>
+
+        <Border Grid.Column="1" Padding="24">
+            <ContentControl Name="ContentArea"/>
+        </Border>
+    </Grid>
+</Window>

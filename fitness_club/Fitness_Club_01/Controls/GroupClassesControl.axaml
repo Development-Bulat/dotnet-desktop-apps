@@ -1,0 +1,31 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="Fitness_Club_01.Controls.GroupClassesControl">
+
+    <Grid RowDefinitions="Auto,Auto,*,Auto">
+        <TextBlock Grid.Row="0" Name="HeaderText" Text="Расписание занятий" FontSize="24" FontWeight="Bold" Foreground="#0F172A" Margin="0,0,0,16"/>
+
+        <Border Grid.Row="1" Background="White" CornerRadius="14" Padding="16" Margin="0,0,0,12"
+                BorderBrush="#E2E8F0" BorderThickness="1">
+            <StackPanel Orientation="Horizontal" Spacing="8">
+                <Button Name="AddButton" Classes="primary" Content="Добавить" Width="120"/>
+                <Button Name="EditButton" Classes="secondary" Content="Изменить" Width="120"/>
+                <Button Name="RefreshButton" Classes="secondary" Content="Обновить" Width="110"/>
+            </StackPanel>
+        </Border>
+
+        <DataGrid Grid.Row="2" Name="ClassesGrid" Classes="AppDataGrid" AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="№" Binding="{Binding Number}" Width="50"/>
+                <DataGridTextColumn Header="Занятие" Binding="{Binding ClassName}" Width="160"/>
+                <DataGridTextColumn Header="Зал" Binding="{Binding HallName}" Width="120"/>
+                <DataGridTextColumn Header="ФИО тренера" Binding="{Binding TrainerName}" Width="200"/>
+                <DataGridTextColumn Header="Расписание" Binding="{Binding Schedule}" Width="140"/>
+                <DataGridTextColumn Header="Мест" Binding="{Binding MaxParticipants}" Width="70"/>
+                <DataGridTextColumn Header="Активно" Binding="{Binding IsActive}" Width="80"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <TextBlock Grid.Row="3" Name="StatusText" Margin="0,10,0,0" Foreground="#64748B" FontSize="12"/>
+    </Grid>
+</UserControl>

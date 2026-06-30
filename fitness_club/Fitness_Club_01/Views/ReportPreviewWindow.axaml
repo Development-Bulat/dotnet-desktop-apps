@@ -1,0 +1,20 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="Fitness_Club_01.Views.ReportPreviewWindow"
+        Title="Отчёт"
+        Width="800" Height="600"
+        WindowStartupLocation="CenterOwner"
+        Background="#F8FAFC">
+
+    <Grid RowDefinitions="*,Auto" Margin="20">
+        <Border Grid.Row="0" Background="White" CornerRadius="14" Padding="16" BorderBrush="#E2E8F0" BorderThickness="1">
+            <ScrollViewer>
+                <TextBox Name="ReportText" AcceptsReturn="True" TextWrapping="Wrap"
+                         IsReadOnly="True" BorderThickness="0" Background="Transparent"
+                         FontFamily="Consolas,Courier New,monospace" FontSize="12"/>
+            </ScrollViewer>
+        </Border>
+        <Button Grid.Row="1" Name="CloseButton" Classes="primary" Content="Закрыть"
+                HorizontalAlignment="Right" Margin="0,12,0,0" Width="120"/>
+    </Grid>
+</Window>
