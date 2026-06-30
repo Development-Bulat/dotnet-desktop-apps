@@ -1,6 +1,16 @@
 # Fitness Club — desktop app
 
-Avalonia UI desktop application for fitness club management: members, trainers, schedules, memberships, and role-based access (Admin, Reception, Trainer, Client).
+Avalonia UI desktop application for fitness club management: clients, trainers, staff, memberships, group classes, bookings, visits, notifications, and reports.
+
+## Features
+
+- **Roles:** Admin, Reception, Trainer, Client — separate windows and permissions
+- **Clients & memberships** — sell, freeze, extend, history
+- **Group classes & schedule** — trainers, halls, time slots, conflict checks
+- **Bookings & visits** — mark attendance, expected visits
+- **References** — membership types, halls, specializations (admin)
+- **Reports** — preview and export
+- **Notifications** — in-app for users
 
 ## Stack
 
@@ -11,17 +21,21 @@ Avalonia UI desktop application for fitness club management: members, trainers, 
 ## Database setup
 
 1. Create database `Fitness_Club` in PostgreSQL.
-2. Run SQL scripts from `database/` **in order** (01 → 12):
+2. Run SQL scripts from `database/` **in numeric order** (01 → 13):
 
 ```bash
-psql -U YOUR_USER -d Fitness_Club -f database/01_create_tables.sql
-# ... repeat for 02–12
+psql -U YOUR_USER -d postgres -f database/01_create_database.sql
+psql -U YOUR_USER -d Fitness_Club -f database/02_schema.sql
+psql -U YOUR_USER -d Fitness_Club -f database/03_seed.sql
+# ... 04 through 13
 ```
 
-Or run all at once:
+Or all at once (after step 01 created the DB):
 
 ```bash
-for f in database/*.sql; do psql -U YOUR_USER -d Fitness_Club -f "$f"; done
+for f in database/0*.sql database/1*.sql; do
+  psql -U YOUR_USER -d Fitness_Club -f "$f"
+done
 ```
 
 ## Connection string
@@ -49,15 +63,37 @@ export FITNESS_CLUB_CONNECTION="Host=localhost;Port=5432;Database=Fitness_Club;U
 
 ```bash
 cd Fitness_Club_01
+dotnet restore
 dotnet run
 ```
 
-Open the solution in Rider: `Fitness_Club_01.sln`.
+Open in Rider: `Fitness_Club_01.sln`.
 
 ## Demo logins
 
-See SQL seed data in `database/11_seed_users.sql` (passwords are hashed in DB).
+After running seed scripts (`03_seed.sql` and later):
+
+| Role | Login | Password |
+|------|-------|----------|
+| Admin | `admin_fc` | `Admin_fc1!` |
+| Reception | `reception_fc` | `Reception1!` |
+| Trainer | `trainer_volkova` | `Trainer1!v` |
+| Client | `client_ivanov` | `Client1!iv` |
+
+## Project structure
+
+```
+fitness_club/
+├── Fitness_Club_01/     # Avalonia app
+│   ├── Views/           # windows (Admin, Reception, Trainer, Client)
+│   ├── Controls/        # reusable UI panels
+│   ├── Services/        # business logic, validators
+│   ├── Data/            # EF Core entities & DbContext
+│   └── Models/          # grid/display rows
+├── database/            # PostgreSQL scripts (01–13)
+└── README.md
+```
 
 ## Author
 
-[Development-Bulat](https://github.com/Development-Bulat)
+GitHub: [Development-Bulat](https://github.com/Development-Bulat)
